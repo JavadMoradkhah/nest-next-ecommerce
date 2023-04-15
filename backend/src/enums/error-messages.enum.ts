@@ -6,6 +6,9 @@ const enum ErrorMessages {
   // Color
   COLOR_NOT_FOUND = 'The color was not found with the given id',
   COLOR_ALREADY_EXISTS = 'A color already exists with the given name or code',
+  // Size
+  SIZE_NOT_FOUND = 'The size was not found with the given id',
+  SIZE_ALREADY_EXISTS = 'A size already exists with the given value',
 }
 
 export default ErrorMessages;
