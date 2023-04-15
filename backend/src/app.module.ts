@@ -7,6 +7,8 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CategoriesModule } from './categories/categories.module';
 import { Category } from './categories/entities/category.entity';
+import { ColorsModule } from './colors/colors.module';
+import { Color } from './colors/entities/color.entity';
 
 @Module({
   imports: [
@@ -23,10 +25,11 @@ import { Category } from './categories/entities/category.entity';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Category],
+      entities: [Category, Color],
       synchronize: process.env.NODE_ENV !== 'production',
     }),
     CategoriesModule,
+    ColorsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
