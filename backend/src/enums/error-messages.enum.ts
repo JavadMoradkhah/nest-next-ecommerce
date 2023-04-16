@@ -12,6 +12,8 @@ const enum ErrorMessages {
   // Country
   COUNTRY_NOT_FOUND = 'The country was not found with the given id',
   COUNTRY_ALREADY_EXISTS = 'A country already exists with the given name',
+  // Product
+  PRODUCT_NOT_FOUND = 'The product was not found with the given id',
 }
 
 export default ErrorMessages;
