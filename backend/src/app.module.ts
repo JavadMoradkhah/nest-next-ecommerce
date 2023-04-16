@@ -13,6 +13,8 @@ import { SizesModule } from './sizes/sizes.module';
 import { Size } from './sizes/entities/size.entity';
 import { CountriesModule } from './countries/countries.module';
 import { Country } from './countries/entities/country.entity';
+import { ProductsModule } from './products/products.module';
+import { Product } from './products/entities/product.entity';
 
 @Module({
   imports: [
@@ -29,13 +31,14 @@ import { Country } from './countries/entities/country.entity';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Category, Color, Size, Country],
+      entities: [Category, Color, Size, Country, Product],
       synchronize: process.env.NODE_ENV !== 'production',
     }),
     CategoriesModule,
     ColorsModule,
     SizesModule,
     CountriesModule,
+    ProductsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
