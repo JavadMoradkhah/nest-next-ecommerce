@@ -11,6 +11,8 @@ import { ColorsModule } from './colors/colors.module';
 import { Color } from './colors/entities/color.entity';
 import { SizesModule } from './sizes/sizes.module';
 import { Size } from './sizes/entities/size.entity';
+import { CountriesModule } from './countries/countries.module';
+import { Country } from './countries/entities/country.entity';
 
 @Module({
   imports: [
@@ -27,12 +29,13 @@ import { Size } from './sizes/entities/size.entity';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Category, Color, Size],
+      entities: [Category, Color, Size, Country],
       synchronize: process.env.NODE_ENV !== 'production',
     }),
     CategoriesModule,
     ColorsModule,
     SizesModule,
+    CountriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
