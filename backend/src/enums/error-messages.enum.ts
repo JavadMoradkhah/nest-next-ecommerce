@@ -9,6 +9,9 @@ const enum ErrorMessages {
   // Size
   SIZE_NOT_FOUND = 'The size was not found with the given id',
   SIZE_ALREADY_EXISTS = 'A size already exists with the given value',
+  // Country
+  COUNTRY_NOT_FOUND = 'The country was not found with the given id',
+  COUNTRY_ALREADY_EXISTS = 'A country already exists with the given name',
 }
 
 export default ErrorMessages;
