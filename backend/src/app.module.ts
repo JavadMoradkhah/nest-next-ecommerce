@@ -15,6 +15,7 @@ import { CountriesModule } from './countries/countries.module';
 import { Country } from './countries/entities/country.entity';
 import { ProductsModule } from './products/products.module';
 import { Product } from './products/entities/product.entity';
+import { UploadsModule } from './uploads/uploads.module';
 import { Upload } from './uploads/entities/upload.entity';
 
 @Module({
@@ -40,6 +41,7 @@ import { Upload } from './uploads/entities/upload.entity';
     SizesModule,
     CountriesModule,
     ProductsModule,
+    UploadsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
