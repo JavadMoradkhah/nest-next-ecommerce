@@ -15,6 +15,7 @@ import { CountriesModule } from './countries/countries.module';
 import { Country } from './countries/entities/country.entity';
 import { ProductsModule } from './products/products.module';
 import { Product } from './products/entities/product.entity';
+import { Upload } from './uploads/entities/upload.entity';
 
 @Module({
   imports: [
@@ -31,7 +32,7 @@ import { Product } from './products/entities/product.entity';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Category, Color, Size, Country, Product],
+      entities: [Category, Color, Size, Country, Product, Upload],
       synchronize: process.env.NODE_ENV !== 'production',
     }),
     CategoriesModule,
