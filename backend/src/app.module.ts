@@ -23,6 +23,8 @@ import { ShippingMethodsModule } from './shipping-methods/shipping-methods.modul
 import { ShippingMethod } from './shipping-methods/entity/shipping-method.entity';
 import { VariationsModule } from './variations/variations.module';
 import { Variation } from './variations/entities/variation.entity';
+import { AdminModule } from './admin/admin.module';
+import { Admin } from './admin/entities/admin.entity';
 
 @Module({
   imports: [
@@ -49,6 +51,7 @@ import { Variation } from './variations/entities/variation.entity';
         ProductImage,
         ShippingMethod,
         Variation,
+        Admin,
       ],
       synchronize: process.env.NODE_ENV !== 'production',
     }),
@@ -61,6 +64,7 @@ import { Variation } from './variations/entities/variation.entity';
     UploadsModule,
     ShippingMethodsModule,
     VariationsModule,
+    AdminModule,
   ],
   controllers: [AppController],
   providers: [AppService],
