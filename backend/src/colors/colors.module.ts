@@ -8,5 +8,6 @@ import { Color } from './entities/color.entity';
   imports: [TypeOrmModule.forFeature([Color])],
   controllers: [ColorsController],
   providers: [ColorsService],
+  exports: [ColorsService],
 })
 export class ColorsModule {}
