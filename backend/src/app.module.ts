@@ -21,6 +21,7 @@ import { UploadsModule } from './uploads/uploads.module';
 import { Upload } from './uploads/entities/upload.entity';
 import { ShippingMethodsModule } from './shipping-methods/shipping-methods.module';
 import { ShippingMethod } from './shipping-methods/entity/shipping-method.entity';
+import { Variation } from './variations/entities/variation.entity';
 
 @Module({
   imports: [
@@ -46,6 +47,7 @@ import { ShippingMethod } from './shipping-methods/entity/shipping-method.entity
         Upload,
         ProductImage,
         ShippingMethod,
+        Variation,
       ],
       synchronize: process.env.NODE_ENV !== 'production',
     }),
