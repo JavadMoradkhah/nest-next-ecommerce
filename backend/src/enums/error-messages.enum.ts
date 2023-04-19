@@ -24,6 +24,8 @@ const enum ErrorMessages {
   // Variation
   VARIATION_NOT_FOUND = 'The product variation method was not found with the given id',
   VARIATION_ALREADY_EXISTS = 'A product variation already exists with the given properties',
+  // Auth
+  INVALID_USERNAME_OR_PASSWORD = 'The given username or password is invalid',
 }
 
 export default ErrorMessages;
