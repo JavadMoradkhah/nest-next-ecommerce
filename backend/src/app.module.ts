@@ -19,6 +19,8 @@ import { ProductImagesModule } from './product-images/product-images.module';
 import { ProductImage } from './product-images/entities/product-image.entity';
 import { UploadsModule } from './uploads/uploads.module';
 import { Upload } from './uploads/entities/upload.entity';
+import { ShippingMethodsModule } from './shipping-methods/shipping-methods.module';
+import { ShippingMethod } from './shipping-methods/entity/shipping-method.entity';
 
 @Module({
   imports: [
@@ -35,7 +37,16 @@ import { Upload } from './uploads/entities/upload.entity';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Category, Color, Size, Country, Product, Upload, ProductImage],
+      entities: [
+        Category,
+        Color,
+        Size,
+        Country,
+        Product,
+        Upload,
+        ProductImage,
+        ShippingMethod,
+      ],
       synchronize: process.env.NODE_ENV !== 'production',
     }),
     CategoriesModule,
@@ -45,6 +56,7 @@ import { Upload } from './uploads/entities/upload.entity';
     ProductsModule,
     ProductImagesModule,
     UploadsModule,
+    ShippingMethodsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
