@@ -10,7 +10,7 @@ import { diskStorage } from 'multer';
 import { FileValidationException } from './file-validation-exception';
 
 export const enum StorageUnit {
-  IMAGE = '/uploads/images/',
+  PRODUCT_IMAGE = '/uploads/images/products/',
 }
 
 export const enum FileType {
