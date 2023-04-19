@@ -6,7 +6,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CreateProductImageDto, UpdateProductImageDto } from './dto';
 import { ProductsService } from 'src/products/products.service';
 import { UploadsService } from 'src/uploads/uploads.service';
-import { UploadType } from 'src/uploads/entities/upload.entity';
 
 @Injectable()
 export class ProductImagesService {
@@ -30,10 +29,7 @@ export class ProductImagesService {
   async create(createImageDto: CreateProductImageDto) {
     const product = await this.productsService.findOne(createImageDto.product);
 
-    const image = await this.uploadsService.findOne(
-      createImageDto.image,
-      UploadType.IMAGE,
-    );
+    const image = await this.uploadsService.findOne(createImageDto.image);
 
     // Check whether the uploaded image is marked as the product main image or not
     if (createImageDto.isMain) {

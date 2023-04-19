@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { UploadType, Upload } from './entities/upload.entity';
+import { Upload } from './entities/upload.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import ErrorMessages from 'src/enums/error-messages.enum';
 import { CreateUploadDto } from './dto/create-upload.dto';
@@ -25,11 +25,10 @@ export class UploadsService {
     return uploads;
   }
 
-  async findOne(id: string, type?: UploadType) {
+  async findOne(id: string) {
     const file = await this.uploadsRepo.findOne({
       where: {
         id,
-        ...(type && { type }),
       },
     });
 
@@ -40,15 +39,11 @@ export class UploadsService {
     return file;
   }
 
-  async createImage(
-    file: Express.Multer.File,
-    createUploadDto: CreateUploadDto,
-  ) {
+  async create(file: Express.Multer.File, createUploadDto: CreateUploadDto) {
     const image = this.uploadsRepo.create({
-      type: UploadType.IMAGE,
-      fileName: file.filename,
+      imageName: file.filename,
       alt: createUploadDto.alt,
-      location: StorageUnit.IMAGE,
+      location: StorageUnit.PRODUCT_IMAGE,
     });
 
     return await this.uploadsRepo.save(image);
@@ -63,8 +58,8 @@ export class UploadsService {
   }
 
   async remove(id: string) {
-    const file = await this.findOne(id);
-    await FileStorage.remove(StorageUnit.IMAGE, file.fileName);
-    await this.uploadsRepo.remove(file);
+    const image = await this.findOne(id);
+    await FileStorage.remove(StorageUnit.PRODUCT_IMAGE, image.imageName);
+    await this.uploadsRepo.remove(image);
   }
 }

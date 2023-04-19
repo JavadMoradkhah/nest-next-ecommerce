@@ -34,7 +34,7 @@ export class ProductsService {
         images: {
           id: true,
           image: {
-            fileUrl: true,
+            imageUrl: true,
             alt: true,
           },
           isMain: true,

@@ -40,16 +40,18 @@ export class UploadsController {
     return this.uploadsService.findOne(id);
   }
 
-  @Post('images')
-  @UseInterceptors(FileInterceptor('file', getUploadOptions(StorageUnit.IMAGE)))
+  @Post()
+  @UseInterceptors(
+    FileInterceptor('image', getUploadOptions(StorageUnit.PRODUCT_IMAGE)),
+  )
   @UseFilters(UploadExceptionFilter)
   @ApiConsumes('multipart/form-data')
-  createImage(
+  create(
     @UploadedFile(validateFilePipe(1024 ** 2 * 2, FileType.IMAGE_JPEG))
     image: Express.Multer.File,
     @Body() createUploadDto: CreateUploadDto,
   ) {
-    return this.uploadsService.createImage(image, createUploadDto);
+    return this.uploadsService.create(image, createUploadDto);
   }
 
   @Patch(':id')

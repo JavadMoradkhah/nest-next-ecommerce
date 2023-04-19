@@ -6,30 +6,23 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-export const enum UploadType {
-  IMAGE = 'image',
-}
-
 @Entity({ name: 'uploads' })
 export class Upload {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'enum', enum: [UploadType.IMAGE] })
-  type: UploadType;
-
-  @Column({ name: 'file_name', type: 'varchar', length: 255 })
-  fileName: string;
+  @Column({ name: 'image_name', type: 'varchar', length: 255 })
+  imageName: string;
 
   @Column({ type: 'varchar', length: 255 })
   location: string;
 
   @Column({
-    name: 'file_url',
+    name: 'image_url',
     generatedType: 'STORED',
-    asExpression: `location || file_name`,
+    asExpression: `location || image_name`,
   })
-  fileUrl: string;
+  imageUrl: string;
 
   @Column({ type: 'varchar', length: 255 })
   alt: string;

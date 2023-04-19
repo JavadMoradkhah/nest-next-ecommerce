@@ -11,7 +11,7 @@ export class CreateUploadDto {
       },
     },
   })
-  file: any;
+  image: any;
 
   @IsString()
   @IsNotEmpty()
