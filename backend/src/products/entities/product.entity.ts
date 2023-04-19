@@ -1,5 +1,6 @@
 import { Category } from 'src/categories/entities/category.entity';
 import { ProductImage } from 'src/product-images/entities/product-image.entity';
+import { Variation } from 'src/variations/entities/variation.entity';
 import {
   Column,
   CreateDateColumn,
@@ -34,6 +35,9 @@ export class Product {
 
   @Column({ type: 'smallint', nullable: true })
   discount?: number;
+
+  @OneToMany(() => Variation, (variation) => variation.product)
+  variations: Variation[];
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

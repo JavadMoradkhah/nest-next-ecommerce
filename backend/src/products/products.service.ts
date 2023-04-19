@@ -1,8 +1,4 @@
-import {
-  Injectable,
-  NotFoundException,
-  ConflictException,
-} from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { Product } from './entities/product.entity';
 import ErrorMessages from 'src/enums/error-messages.enum';
@@ -64,6 +60,10 @@ export class ProductsService {
           category: true,
           images: {
             image: true,
+          },
+          variations: {
+            color: true,
+            size: true,
           },
         },
       }),
