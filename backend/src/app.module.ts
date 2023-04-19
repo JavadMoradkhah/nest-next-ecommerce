@@ -15,6 +15,8 @@ import { CountriesModule } from './countries/countries.module';
 import { Country } from './countries/entities/country.entity';
 import { ProductsModule } from './products/products.module';
 import { Product } from './products/entities/product.entity';
+import { ProductImagesModule } from './product-images/product-images.module';
+import { ProductImage } from './product-images/entities/product-image.entity';
 import { UploadsModule } from './uploads/uploads.module';
 import { Upload } from './uploads/entities/upload.entity';
 
@@ -33,7 +35,7 @@ import { Upload } from './uploads/entities/upload.entity';
       username: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
-      entities: [Category, Color, Size, Country, Product, Upload],
+      entities: [Category, Color, Size, Country, Product, Upload, ProductImage],
       synchronize: process.env.NODE_ENV !== 'production',
     }),
     CategoriesModule,
@@ -41,6 +43,7 @@ import { Upload } from './uploads/entities/upload.entity';
     SizesModule,
     CountriesModule,
     ProductsModule,
+    ProductImagesModule,
     UploadsModule,
   ],
   controllers: [AppController],
