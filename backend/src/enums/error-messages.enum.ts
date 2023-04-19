@@ -21,6 +21,9 @@ const enum ErrorMessages {
   // Shipping Method
   SHIPPING_METHOD_NOT_FOUND = 'The shipping method was not found with the given id',
   SHIPPING_METHOD_ALREADY_EXISTS = 'A shipping method already exists with the given name',
+  // Variation
+  VARIATION_NOT_FOUND = 'The product variation method was not found with the given id',
+  VARIATION_ALREADY_EXISTS = 'A product variation already exists with the given properties',
 }
 
 export default ErrorMessages;
