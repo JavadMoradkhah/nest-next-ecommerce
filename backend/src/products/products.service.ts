@@ -31,9 +31,20 @@ export class ProductsService {
           name: true,
           slug: true,
         },
+        images: {
+          id: true,
+          image: {
+            fileUrl: true,
+            alt: true,
+          },
+          isMain: true,
+        },
       },
       relations: {
         category: true,
+        images: {
+          image: true,
+        },
       },
       order: {
         updatedAt: 'DESC',
@@ -51,6 +62,9 @@ export class ProductsService {
       ...(includeRelations && {
         relations: {
           category: true,
+          images: {
+            image: true,
+          },
         },
       }),
     });

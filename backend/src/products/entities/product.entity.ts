@@ -1,9 +1,11 @@
 import { Category } from 'src/categories/entities/category.entity';
+import { ProductImage } from 'src/product-images/entities/product-image.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
   JoinColumn,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -17,6 +19,9 @@ export class Product {
   @OneToOne(() => Category, (category) => category.id)
   @JoinColumn({ name: 'category_id' })
   category: Category;
+
+  @OneToMany(() => ProductImage, (productImage) => productImage.product)
+  images: ProductImage[];
 
   @Column({ type: 'varchar', length: 255 })
   title: string;
