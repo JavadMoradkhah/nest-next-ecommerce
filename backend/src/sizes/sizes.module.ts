@@ -8,5 +8,6 @@ import { Size } from './entities/size.entity';
   imports: [TypeOrmModule.forFeature([Size])],
   controllers: [SizesController],
   providers: [SizesService],
+  exports: [SizesService],
 })
 export class SizesModule {}
