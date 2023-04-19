@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import helmet from 'helmet';
 import * as cookieParser from 'cookie-parser';
+import * as session from 'express-session';
 import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
@@ -10,6 +11,13 @@ async function bootstrap() {
 
   app.use(helmet());
   app.use(cookieParser(process.env.COOKIE_SECRET));
+  app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: false,
+    }),
+  );
 
   const swaggerConfig = new DocumentBuilder()
     .setTitle('E-Commerce API')
