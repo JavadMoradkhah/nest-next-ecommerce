@@ -6,6 +6,10 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
+export const enum AdminRole {
+  SUPER_ADMIN = 'super_admin',
+}
+
 @Entity({ name: 'admins' })
 export class Admin {
   @PrimaryGeneratedColumn('uuid')
@@ -19,6 +23,9 @@ export class Admin {
 
   @Column({ type: 'varchar', length: 255 })
   password: string;
+
+  @Column({ type: 'enum', enum: [AdminRole.SUPER_ADMIN] })
+  role: AdminRole;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
