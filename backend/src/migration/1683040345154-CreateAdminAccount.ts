@@ -1,7 +1,6 @@
 import { Admin } from '../admin/entities/admin.entity';
 import { MigrationInterface, QueryRunner } from 'typeorm';
 import { config } from 'dotenv';
-import * as bcrypt from 'bcrypt';
 
 config();
 
@@ -12,6 +11,7 @@ export class CreateAdminAccount1683040345154 implements MigrationInterface {
     const admin = new Admin();
     admin.username = process.env.ADMIN_USERNAME;
     admin.email = process.env.ADMIN_EMAIL;
+    admin.password = process.env.ADMIN_PASSWORD;
     admin.password = await bcrypt.hash(process.env.ADMIN_PASSWORD, 12);
 
     const result = await adminRepo.upsert(admin, ['username', 'email']);
