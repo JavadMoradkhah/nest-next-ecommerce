@@ -1,4 +1,4 @@
-import { Admin } from '../admin/entities/admin.entity';
+import { Admin, AdminRole } from '../admin/entities/admin.entity';
 import { MigrationInterface, QueryRunner } from 'typeorm';
 import { config } from 'dotenv';
 
@@ -12,7 +12,7 @@ export class CreateAdminAccount1683040345154 implements MigrationInterface {
     admin.username = process.env.ADMIN_USERNAME;
     admin.email = process.env.ADMIN_EMAIL;
     admin.password = process.env.ADMIN_PASSWORD;
-    admin.password = await bcrypt.hash(process.env.ADMIN_PASSWORD, 12);
+    admin.role = AdminRole.SUPER_ADMIN;
 
     const result = await adminRepo.upsert(admin, ['username', 'email']);
 
