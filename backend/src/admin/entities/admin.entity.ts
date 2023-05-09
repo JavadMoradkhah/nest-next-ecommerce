@@ -1,10 +1,12 @@
 import {
+  BeforeInsert,
   Column,
   CreateDateColumn,
   Entity,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import * as bcrypt from 'bcrypt';
 
 export const enum AdminRole {
   SUPER_ADMIN = 'super_admin',
@@ -23,6 +25,11 @@ export class Admin {
 
   @Column({ type: 'varchar', length: 255 })
   password: string;
+
+  @BeforeInsert()
+  async hashPassword() {
+    this.password = await bcrypt.hash(this.password, 12);
+  }
 
   @Column({ type: 'enum', enum: [AdminRole.SUPER_ADMIN] })
   role: AdminRole;
