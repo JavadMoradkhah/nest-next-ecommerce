@@ -25,6 +25,7 @@ import { VariationsModule } from './variations/variations.module';
 import { Variation } from './variations/entities/variation.entity';
 import { AdminModule } from './admin/admin.module';
 import { Admin } from './admin/entities/admin.entity';
+import { RedisModule } from './redis/redis.module';
 
 @Module({
   imports: [
@@ -55,6 +56,7 @@ import { Admin } from './admin/entities/admin.entity';
       ],
       synchronize: process.env.NODE_ENV !== 'production',
     }),
+    RedisModule.forRoot(),
     CategoriesModule,
     ColorsModule,
     SizesModule,
