@@ -14,7 +14,7 @@ export class CreateAdminAccount1683040345154 implements MigrationInterface {
     admin.password = process.env.ADMIN_PASSWORD;
     admin.role = AdminRole.SUPER_ADMIN;
 
-    const result = await adminRepo.upsert(admin, ['username', 'email']);
+    const result = await adminRepo.upsert(admin, ['username']);
 
     console.log('✅ The admin account was created successfully:', result);
   }
