@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import * as cookieParser from 'cookie-parser';
 import * as session from 'express-session';
 import { ValidationPipe } from '@nestjs/common';
+import * as passport from 'passport';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -24,6 +25,9 @@ async function bootstrap() {
       },
     }),
   );
+
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   const swaggerConfig = new DocumentBuilder()
     .setTitle('E-Commerce API')
