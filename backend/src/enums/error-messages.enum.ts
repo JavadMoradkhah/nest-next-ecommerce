@@ -26,6 +26,7 @@ const enum ErrorMessages {
   VARIATION_ALREADY_EXISTS = 'A product variation already exists with the given properties',
   // Auth
   INVALID_USERNAME_OR_PASSWORD = 'The given username or password is invalid',
+  INVALID_USER_CREDENTIALS = 'The given credentials are invalid',
 }
 
 export default ErrorMessages;
